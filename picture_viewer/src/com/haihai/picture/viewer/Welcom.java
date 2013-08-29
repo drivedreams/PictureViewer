@@ -3,6 +3,7 @@ package com.haihai.picture.viewer;
 import com.haihai.picture.viewer.tmp.CollectionDemoActivity;
 import com.haihai.picture.viewer.util.SystemUiHider;
 import com.haihai.picture.viewer.view.StaticPictureView;
+import com.mobisage.android.agg.view.AdSageListener;
 
 
 import android.annotation.TargetApi;
@@ -25,7 +26,9 @@ import android.widget.LinearLayout;
  * 
  * @see SystemUiHider
  */
-public class Welcom extends Activity {
+public class Welcom extends Activity  implements AdSageListener{
+    private final static String ADSAGE_LOG_TAG = "ADF";
+	private String yourPublishId = "6ad62ddb4df241ceb1100bc594f0c28b"; 
 	/**
 	 * Whether or not the system UI should be auto-hidden after
 	 * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -171,5 +174,95 @@ public class Welcom extends Activity {
 	private void delayedHide(int delayMillis) {
 		mHideHandler.removeCallbacks(mHideRunnable);
 		mHideHandler.postDelayed(mHideRunnable, delayMillis);
+	}
+
+	@Override
+	public void onClickAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onCloseBannerAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onCloseFullAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDismissScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFailedReceiveAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFailedReceiveFullScreenAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFullScreenDismissScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFullScreenPresentScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPresentScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onReceiveAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onReceiveFullScreenAd() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSplashLoadFailed() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSplshScreenDismissScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSplshScreenNoReady() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSplshScreenPresentScreen() {
+		// TODO Auto-generated method stub
+		
 	}
 }

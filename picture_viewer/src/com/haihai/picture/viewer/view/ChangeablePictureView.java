@@ -15,10 +15,11 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 
-public  class ChangeablePictureView extends View {
+public  class ChangeablePictureView extends SurfaceView {
 	private int initBitmapWidth;
 	private int initBitmapHeight;
 	private int currentOrignPosX;
@@ -28,7 +29,7 @@ public  class ChangeablePictureView extends View {
 	private int currentWidth;
 	private int currentHeight;
 	private int currentRate;
-	 
+	private boolean isMutipulTouch;
 	/**
 	 * Default paint paint.
 	 */
@@ -182,7 +183,9 @@ public  class ChangeablePictureView extends View {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
-			
+			if(e2.getX() - e1.getX() > 12 || e2.getY() - e2.getY() > 12){
+				
+			}
 			return super.onFling(e1, e2, velocityX, velocityY);
 		}
 
@@ -196,6 +199,7 @@ public  class ChangeablePictureView extends View {
 		public boolean onScroll(MotionEvent e1, MotionEvent e2,
 				float distanceX, float distanceY) {
 			// TODO Auto-generated method stub
+			 
 			  if(preMovedToPosX == -1 && preMovedToPosY == -1){
 					preMovedToPosX = e1.getX();
 					preMovedToPosY = e1.getY();
