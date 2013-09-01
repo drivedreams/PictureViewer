@@ -34,5 +34,9 @@
     </style>
 
     <style name="ButtonBarButton" />
-
+	<style name="Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

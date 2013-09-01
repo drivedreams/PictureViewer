@@ -54,13 +54,7 @@ public class MenuActivity extends Activity{
 	 private void showImages() {
 		 Bitmap bitmap =  BitmapFactory.decodeResource(getResources(), R.drawable.sexymm04);
 		 ChangeablePictureView changeablePictureView = new ChangeablePictureView(this, bitmap);
-		/* WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
-		 Log.w("mai", wm.getDefaultDisplay().getHeight()+ "--fs--" +wm.getDefaultDisplay().getWidth());
-		 changeablePictureView.setScaleType(ImageView.ScaleType.FIT_XY);
-		 changeablePictureView.setAdjustViewBounds(true);
-		 changeablePictureView.setMaxHeight(wm.getDefaultDisplay().getHeight());//¸ß¶È
-		 changeablePictureView.setMaxWidth(wm.getDefaultDisplay().getHeight());//¿í¶È			
-*/		 linearLayout.addView(changeablePictureView );
+		 linearLayout.addView(changeablePictureView );
 	}
 
 	private void initiallize() {

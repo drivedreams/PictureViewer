@@ -19,7 +19,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 
-public  class ChangeablePictureView extends SurfaceView {
+public  class ChangeablePictureView extends View {
 	private int initBitmapWidth;
 	private int initBitmapHeight;
 	private int currentOrignPosX;

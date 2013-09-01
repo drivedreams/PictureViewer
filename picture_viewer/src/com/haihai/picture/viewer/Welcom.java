@@ -1,9 +1,11 @@
 package com.haihai.picture.viewer;
+ 
 
-import com.haihai.picture.viewer.tmp.CollectionDemoActivity;
 import com.haihai.picture.viewer.util.SystemUiHider;
 import com.haihai.picture.viewer.view.StaticPictureView;
+import com.mobisage.android.agg.view.AdSageLayout;
 import com.mobisage.android.agg.view.AdSageListener;
+import com.mobisage.android.agg.view.AdSageSize;
 
 
 import android.annotation.TargetApi;
@@ -15,8 +17,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -27,7 +27,19 @@ import android.widget.LinearLayout;
  * @see SystemUiHider
  */
 public class Welcom extends Activity  implements AdSageListener{
-    private final static String ADSAGE_LOG_TAG = "ADF";
+	
+	private final static String ADSAGE_LOG_TAG = "ADF";
+	private static final String AdSageLayout = null;
+	
+    //此处配置 您的艾德聚合平台publishId；
+	
+
+	
+	//此处为sample程序中需要添加广告的view
+	private LinearLayout layoutMain = null; 
+	
+	//此处为sample程序中艾德聚合广告view
+	private AdSageLayout adSageLayout = null; ;
 	private String yourPublishId = "6ad62ddb4df241ceb1100bc594f0c28b"; 
 	/**
 	 * Whether or not the system UI should be auto-hidden after
@@ -64,13 +76,32 @@ public class Welcom extends Activity  implements AdSageListener{
 		setContentView(R.layout.welcom_layout);
 		ImageView img = new StaticPictureView(this);
 		
+		
+		 
+		//addlistenner();
+		addAd();
+		
+	}
+
+	private void addAd() {
+		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.fullscreen_content_controls);
+		final AdSageLayout adSageLayout;
+		
+        adSageLayout = new AdSageLayout(this, "3688daf8cf2d4cddaa8f5465ff208bc8",AdSageSize.AdSageSize_Auto);	
+        
+        adSageLayout.setAdListener(this);
+        
+         
+        linearLayout.addView(adSageLayout);
+       
+		
+	}
+
+	/*private void addlistenner() {
+		findViewById(R.id.dummy_button).setOnTouchListener(
+				mDelayHideTouchListener);
 		final View controlsView = findViewById(R.id.fullscreen_content_controls);
 		final View contentView = findViewById(R.id.fullscreen_content);
-		
-		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.fullscreen_content_controls);
-		linearLayout.addView(img);
-		// Set up an instance of SystemUiHider to control the system UI for
-		// this activity.
 		mSystemUiHider = SystemUiHider.getInstance(this, contentView,
 				HIDER_FLAGS);
 		mSystemUiHider.setup();
@@ -125,12 +156,7 @@ public class Welcom extends Activity  implements AdSageListener{
 				}
 			}
 		});
-
-		// Upon interacting with UI controls, delay any scheduled hide()
-		// operations to prevent the jarring behavior of controls going away
-		// while interacting with the UI.
-		findViewById(R.id.dummy_button).setOnTouchListener(
-				mDelayHideTouchListener);
+		
 	}
 
 	@Override
@@ -143,11 +169,11 @@ public class Welcom extends Activity  implements AdSageListener{
 		delayedHide(100);
 	}
 
-	/**
+	*//**
 	 * Touch listener to use for in-layout UI controls to delay hiding the
 	 * system UI. This is to prevent the jarring behavior of controls going away
 	 * while interacting with activity UI.
-	 */
+	 *//*
 	View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -167,19 +193,19 @@ public class Welcom extends Activity  implements AdSageListener{
 		}
 	};
 
-	/**
+	*//**
 	 * Schedules a call to hide() in [delay] milliseconds, canceling any
 	 * previously scheduled calls.
-	 */
+	 *//*
 	private void delayedHide(int delayMillis) {
 		mHideHandler.removeCallbacks(mHideRunnable);
 		mHideHandler.postDelayed(mHideRunnable, delayMillis);
-	}
+	}*/
 
 	@Override
 	public void onClickAd() {
 		// TODO Auto-generated method stub
-		
+		Log.w("ads", "Ads Click  ");
 	}
 
 	@Override
@@ -202,7 +228,7 @@ public class Welcom extends Activity  implements AdSageListener{
 
 	@Override
 	public void onFailedReceiveAd() {
-		// TODO Auto-generated method stub
+		Log.w("ads", "Ads receiveing failed ");
 		
 	}
 
@@ -226,13 +252,13 @@ public class Welcom extends Activity  implements AdSageListener{
 
 	@Override
 	public void onPresentScreen() {
-		// TODO Auto-generated method stub
+		Log.w("ads", "Ads Present ... ");
 		
 	}
 
 	@Override
 	public void onReceiveAd() {
-		// TODO Auto-generated method stub
+		Log.w("ads", "Ads receiveing ... ");
 		
 	}
 

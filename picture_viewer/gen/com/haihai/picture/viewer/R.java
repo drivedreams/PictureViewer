@@ -59,7 +59,6 @@ containing a value of this type.
     public static final class id {
         public static final int demo_collection_button=0x7f070004;
         public static final int demo_external_activity=0x7f070005;
-        public static final int dummy_button=0x7f070009;
         public static final int fullscreen_content=0x7f070007;
         public static final int fullscreen_content_controls=0x7f070008;
         public static final int guidePages=0x7f070002;
@@ -94,18 +93,15 @@ containing a value of this type.
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
-
         
 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
-
     
  API 11 theme customizations can go here. 
 
@@ -122,8 +118,9 @@ containing a value of this type.
         public static final int AppTheme=0x7f060001;
         public static final int ButtonBar=0x7f060003;
         public static final int ButtonBarButton=0x7f060004;
-        public static final int FullscreenActionBarStyle=0x7f060005;
+        public static final int FullscreenActionBarStyle=0x7f060006;
         public static final int FullscreenTheme=0x7f060002;
+        public static final int Transparent=0x7f060005;
     }
     public static final class styleable {
         /** 
