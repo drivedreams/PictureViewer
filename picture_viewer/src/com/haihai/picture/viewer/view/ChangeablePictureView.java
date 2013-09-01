@@ -25,11 +25,7 @@ public  class ChangeablePictureView extends View {
 	private int currentOrignPosX;
 	private int currentOrignPosY; 
 	float preMovedToPosX ;
-	float preMovedToPosY ;
-	private int currentWidth;
-	private int currentHeight;
-	private int currentRate;
-	private boolean isMutipulTouch;
+	float preMovedToPosY ; 
 	/**
 	 * Default paint paint.
 	 */
@@ -37,13 +33,15 @@ public  class ChangeablePictureView extends View {
 	private Bitmap bitmap;
 	private Bitmap reCreateBitmap;
 	private GestureDetector gestureDetector;
+	int viewWidth ;
+	int viewHeight ;
+	
+	
 	/**
 	 * IDs of images in resources.
 	 */
 	List<Integer> imageIds = new ArrayList<Integer>();
-	int viewWidth ;
-	int viewHeight ;
-	
+	 
 	/**
 	 * URLs of images in SD cart
 	 */
@@ -54,17 +52,6 @@ public  class ChangeablePictureView extends View {
 	 */
 	
 	int currentIdIndex ;
-	
-	/**
-	 * Index of image in {@link com.haihai.picture.viewer.view.ChangeablePictureView#imageUrls} 
-	 */
-	
-	 
-	 
-	/**
-	 * 
-	 */
-	
 	 
 	public ChangeablePictureView(Context context, Bitmap bitmap) {
 		super(context);
@@ -87,7 +74,25 @@ public  class ChangeablePictureView extends View {
 		reCreateBitmap = bitmap;
 		setAdaptScreenShow();
 	}
-
+	
+	/**
+	 * Gets next displayed picture 
+	 * @return
+	 */
+	private Bitmap nextPicture(){
+		
+		
+		return bitmap;
+	}
+	
+	/**
+	 * Gets last displayed picture 
+	 * @return
+	 */
+	private Bitmap lastPicture(){
+		 
+		return bitmap;
+	}
 	private void setAdaptScreenShow( ){
 		Log.w("test", "setAdaptScreenShow");
 		double scale = 1;
@@ -138,7 +143,7 @@ public  class ChangeablePictureView extends View {
 	 * @return
 	 */
 	private  void changePicSize(Point centerPos, int width, int height){
-		 
+		 	
 			float scalex = (float)width / (float) initBitmapWidth  ;
 			float scaley = (float)height / (float) initBitmapHeight ;
 			setScale(new Point(0, 0), scalex, scaley);
