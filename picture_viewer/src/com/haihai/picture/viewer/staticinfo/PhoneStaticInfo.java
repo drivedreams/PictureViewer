@@ -1,20 +1,24 @@
 package com.haihai.picture.viewer.staticinfo;
+ 
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
-
-public class PhoneStaticInfo extends Activity{
-	private WindowManager wm = this.getWindowManager();
+public class PhoneStaticInfo  {
 	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	private static int screenWidth;
+	private static int screenHeight;
+	
+	
+	public static int getScreenWidth() {
+		return screenWidth;
 	}
-	public  WindowManager getScreenSize(){
-		
-		return wm;
-		
+	public static void setScreenWidth(int screenWidth) {
+		PhoneStaticInfo.screenWidth = screenWidth;
 	}
+	public static int getScreenHeight() {
+		return screenHeight;
+	}
+	public static void setScreenHeight(int screenHeight) {
+		PhoneStaticInfo.screenHeight = screenHeight;
+	}
+	
+	  
 }

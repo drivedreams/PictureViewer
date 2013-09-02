@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap; 
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -13,18 +14,31 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 
 public  class ChangeablePictureView extends View {
 	private int initBitmapWidth;
 	private int initBitmapHeight;
+	
+	/**
+	 * Used for x moving pictures
+	 */
 	private int currentOrignPosX;
+	/**
+	 * Used for y moving pictures
+	 */
 	private int currentOrignPosY; 
+	
+	/**
+	 * Used for x moving pictures
+	 */
 	float preMovedToPosX ;
+	/**
+	 * Used for y moving pictures
+	 */
+	
 	float preMovedToPosY ; 
 	/**
 	 * Default paint paint.
@@ -36,7 +50,23 @@ public  class ChangeablePictureView extends View {
 	int viewWidth ;
 	int viewHeight ;
 	
+	/**
+	 * Picture come from ID or URl
+	 */
+	public enum  PictureOrignKind{
+		PICTURE_ORIGN_KIND_ID, PICTURE_ORIGN_KIND_URL
+	};
 	
+	/**
+	 * Current currentPictureOrignKind 
+	 */
+	private PictureOrignKind currentPictureOrignKind;
+	 
+	/**
+	 * The index currently of showed picture in IDs or URLs.
+	 * It should be used together with  {@link com.haihai.picture.viewer.view.ChangeablePictureView#currentPictureOrignKind }
+	 */
+	int currentPictureIndexInList;
 	/**
 	 * IDs of images in resources.
 	 */
@@ -47,26 +77,28 @@ public  class ChangeablePictureView extends View {
 	 */
 	List<String> imageUrls = new ArrayList<String>();
 	
-	/**
-	 * Index of image in {@link com.haihai.picture.viewer.view.ChangeablePictureView#imageIds} 
-	 */
-	
-	int currentIdIndex ;
-	 
 	public ChangeablePictureView(Context context, Bitmap bitmap) {
 		super(context);
-		this.bitmap = bitmap;
-		initBitmapWidth = bitmap.getWidth();
-		initBitmapHeight = bitmap.getHeight();
-		gestureDetector = new GestureDetector(context, new GestureListener());
+		
 		initialize(context, bitmap);
 	}
 	
 	private void initialize(Context context, Bitmap bitmap) {
+		this.bitmap = bitmap;
+		initBitmapWidth = bitmap.getWidth();
+		initBitmapHeight = bitmap.getHeight();
+		gestureDetector = new GestureDetector(context, new GestureListener());
+		
+		currentPictureOrignKind = PictureOrignKind.PICTURE_ORIGN_KIND_ID;
+		currentPictureIndexInList = 0;
+		
+		
 		currentOrignPosX = 0;
 		currentOrignPosY = 0;
 		preMovedToPosX = -1;
 		preMovedToPosY = -1;
+		
+		
 		Activity activity = (Activity)context;
 		WindowManager wm = activity.getWindowManager();
 		viewWidth = wm.getDefaultDisplay().getWidth();
@@ -79,22 +111,38 @@ public  class ChangeablePictureView extends View {
 	 * Gets next displayed picture 
 	 * @return
 	 */
-	private Bitmap nextPicture(){
+	private void nextPicture(){
 		
-		
-		return bitmap;
+		if(currentPictureOrignKind == PictureOrignKind.PICTURE_ORIGN_KIND_ID){
+			if(currentPictureIndexInList < imageIds.size() -1){
+				currentPictureIndexInList ++;
+				bitmap = BitmapFactory.decodeResource(getResources(), imageIds.get(currentPictureIndexInList));
+				setAdaptScreenShow();
+			}
+		}else{
+			//TODO Add some method to get bitmap from SD card
+		}
+		reDraw();
 	}
 	
 	/**
 	 * Gets last displayed picture 
 	 * @return
 	 */
-	private Bitmap lastPicture(){
+	private void lastPicture(){
 		 
-		return bitmap;
+		if(currentPictureOrignKind == PictureOrignKind.PICTURE_ORIGN_KIND_ID){
+			if(currentPictureIndexInList > 0){
+				currentPictureIndexInList --;
+				bitmap = BitmapFactory.decodeResource(getResources(), imageIds.get(currentPictureIndexInList));
+			}
+		}else{
+			//TODO Add some method to get bitmap from SD card
+		}
+		reDraw();
 	}
 	private void setAdaptScreenShow( ){
-		Log.w("test", "setAdaptScreenShow");
+		 
 		double scale = 1;
 		if((float)viewHeight / (float)initBitmapHeight < (float) viewWidth /(float)initBitmapWidth ){
 			
@@ -102,8 +150,7 @@ public  class ChangeablePictureView extends View {
 		}else{
 			
 			scale = (double)viewWidth /(double) initBitmapWidth ;
-			Log.w("test", scale + "___" + viewHeight + "____" + initBitmapHeight);
-		}
+		} 
 		
 		Point center = new Point(0, 0);
 		setScale(center, (float)scale, (float)scale);
@@ -119,8 +166,7 @@ public  class ChangeablePictureView extends View {
 		
 			Matrix matrix = new Matrix();
 			matrix.setScale(scalex, scaley);
-			
-			Log.w("test", scalex + "--scale--"+ scaley);
+			 
 			reCreateBitmap=  Bitmap.createBitmap(bitmap, 0, 0,
 					initBitmapWidth, initBitmapHeight, matrix, false);
 			 
@@ -188,8 +234,12 @@ public  class ChangeablePictureView extends View {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
-			if(e2.getX() - e1.getX() > 12 || e2.getY() - e2.getY() > 12){
-				
+			if(e2.getX() - e1.getX() > 12 ){
+				nextPicture();
+			}else{
+				if(e2.getX() - e1.getX() < - 12 ){
+					lastPicture();
+				}
 			}
 			return super.onFling(e1, e2, velocityX, velocityY);
 		}
@@ -203,8 +253,7 @@ public  class ChangeablePictureView extends View {
 		@Override
 		public boolean onScroll(MotionEvent e1, MotionEvent e2,
 				float distanceX, float distanceY) {
-			// TODO Auto-generated method stub
-			 
+		 
 			  if(preMovedToPosX == -1 && preMovedToPosY == -1){
 					preMovedToPosX = e1.getX();
 					preMovedToPosY = e1.getY();
@@ -231,7 +280,6 @@ public  class ChangeablePictureView extends View {
 
 		@Override
 		public boolean onSingleTapUp(MotionEvent e) {
-			
 			
 			return super.onSingleTapUp(e);
 		}
