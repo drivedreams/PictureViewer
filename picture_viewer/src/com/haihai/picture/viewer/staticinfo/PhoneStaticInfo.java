@@ -20,5 +20,4 @@ public class PhoneStaticInfo  {
 		PhoneStaticInfo.screenHeight = screenHeight;
 	}
 	
-	  
 }

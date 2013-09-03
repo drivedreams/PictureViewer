@@ -1,5 +1,5 @@
 /**
- * 
+ * This packet works for showing advertisements
  */
 /**
  * @author zhanghaihai
