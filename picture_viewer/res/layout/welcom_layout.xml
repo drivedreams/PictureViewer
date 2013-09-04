@@ -7,8 +7,17 @@
     tools:context=".Welcom" > 
   
  <LinearLayout android:orientation="horizontal" 
-     android:layout_height="wrap_content" 
+     android:layout_height="match_parent" 
      android:layout_width="wrap_content" 
-     android:id="@+id/fullscreen_content_controls"/>
- 
+     android:id="@+id/fullscreen_content_controls">
+     
+    <ImageView android:id="@+id/download_pic"
+        android:contentDescription="test"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_gravity="center"
+        android:scaleType="center"   
+        />
+ </LinearLayout> 
+  
 </FrameLayout>

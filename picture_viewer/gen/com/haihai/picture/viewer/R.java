@@ -60,6 +60,7 @@ containing a value of this type.
     public static final class id {
         public static final int demo_collection_button=0x7f070004;
         public static final int demo_external_activity=0x7f070005;
+        public static final int download_pic=0x7f070008;
         public static final int fullscreen_content_controls=0x7f070007;
         public static final int guidePages=0x7f070002;
         public static final int menu=0x7f070006;
