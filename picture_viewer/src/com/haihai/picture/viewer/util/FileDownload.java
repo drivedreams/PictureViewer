@@ -97,7 +97,7 @@ public class FileDownload {
 					    while (( tempString = bufferedReader.readLine()) != null) {
 					    	txtString += tempString;
 			            }
-					    
+					    Log.w("txt", txtString);
 				     }
 			 } catch (IOException e) {
 				 Log.w("Pic", "Download failed  ");
