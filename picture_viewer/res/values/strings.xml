@@ -7,5 +7,9 @@
     <string name="to_main_board">MainBoard</string>
     <string name="demo_external_activity">Demo External Activity</string>
     <string name="demo_collection">Demo Collection</string>
-
+    <string name="category_title_str">Picture Categories</string>
+	<string-array name="category_names">
+	    <item name="sexy">sexy_text</item>
+	    
+	    </string-array>
 </resources>

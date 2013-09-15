@@ -15,4 +15,5 @@
        <attr name="categories" format="string" />
        <attr name="welcom" format="string" />
    </declare-styleable>
+   
 </resources>

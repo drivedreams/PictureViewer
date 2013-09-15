@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:background="#ff99cc"
     tools:context=".MenuActivity" >
-  <android:
+
+  <TextView
+      android:id="@+id/category_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/category_title_str" />
+
+ <ScrollView android:id="@+id/categories" >
+       
+  </ScrollView>
 
 </FrameLayout>
