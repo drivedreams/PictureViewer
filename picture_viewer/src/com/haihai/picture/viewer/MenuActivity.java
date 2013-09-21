@@ -2,6 +2,7 @@ package com.haihai.picture.viewer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.haihai.picture.viewer.view.ChangeablePictureView;
 
@@ -28,13 +29,15 @@ import android.widget.LinearLayout;
 public class MenuActivity extends Activity{
 	private  List<Integer> imageIDs ;
 	private List<ChangeablePictureView> pictureViews;
+	 
 	LinearLayout linearLayout;
-	
+	Map<String, ImageView> menuStuffMap = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_layout);
-		 linearLayout = (LinearLayout)findViewById(R.id.menu);
+		LinearLayout linearLayout = new LinearLayout(this);
+		
 		initiallize();
 		
 	   

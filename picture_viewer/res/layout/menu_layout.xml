@@ -4,19 +4,8 @@
     android:layout_height="match_parent"
     android:background="#ff99cc"
     tools:context=".MenuActivity" >
- 
   
-        <LinearLayout
-            android:id="@+id/menu"
-            style="?buttonBarStyle"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="vertical"
-            tools:ignore="UselessParent" >
-		 
-        </LinearLayout>
-    
-
+      <ListView > 
+          
+      </ListView> 
 </FrameLayout>

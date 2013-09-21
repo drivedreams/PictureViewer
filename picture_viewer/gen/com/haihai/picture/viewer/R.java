@@ -56,19 +56,19 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020004;
         public static final int page_indicator=0x7f020005;
         public static final int page_indicator_focused=0x7f020006;
-        public static final int sexymm04=0x7f020007;
-        public static final int sexymm05=0x7f020008;
-        public static final int splsh=0x7f020009;
+        public static final int puremm63=0x7f020007;
+        public static final int sexymm04=0x7f020008;
+        public static final int sexymm05=0x7f020009;
+        public static final int splsh=0x7f02000a;
     }
     public static final class id {
         public static final int categories=0x7f080003;
         public static final int category_title=0x7f080002;
         public static final int demo_collection_button=0x7f080006;
         public static final int demo_external_activity=0x7f080007;
-        public static final int download_pic=0x7f08000a;
-        public static final int fullscreen_content_controls=0x7f080009;
+        public static final int download_pic=0x7f080008;
         public static final int guidePages=0x7f080004;
-        public static final int menu=0x7f080008;
+        public static final int open=0x7f080009;
         public static final int pager=0x7f080000;
         public static final int pager_title_strip=0x7f080001;
         public static final int viewGroup=0x7f080005;
@@ -96,6 +96,7 @@ containing a value of this type.
         public static final int dummy_content=0x7f050001;
         public static final int menu_page_name=0x7f050002;
         public static final int to_main_board=0x7f050003;
+        public static final int welcome_back_alt=0x7f050007;
     }
     public static final class style {
         /** 

@@ -25,8 +25,7 @@ public class Welcome   extends AbstractMobiSageMediatorAd{
 		setContentView(R.layout.welcom_layout);
 		new StaticPictureView(this);
 		 final ImageView pic = (ImageView)findViewById(R.id.download_pic);
-		  WelcomeView welcomView =new WelcomeView(this);
-		  welcomView.setImageResource(R.drawable.sexymm05);
+		  WelcomeView welcomView =new WelcomeView(this); 
 		  this.addContentView(welcomView, pic.getLayoutParams());
 		  
 		/*String picListUrl = "http://hot.baidupcs.com/file/3608ded5e636213b5c5159b13e0b4f9e?xcode=1633cd63bdba8624979b2ba7237f37fb63783c764c03dca5&fid=255009563-250528-1176229348&time=1378306504&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-DEzHA6awRN%2BrvzG2AOaf%2FuBA6mY%3D&to=hb&fm=N,B,U&expires=8h&rt=pr&r=617507837&logid=1731049635&fn=piclist.txt";
@@ -55,13 +54,18 @@ public class Welcome   extends AbstractMobiSageMediatorAd{
 		
 	}
 
+	@Override
 	public void addADs() {
+		 
+	}
+
+	/*public void addADs() {
 		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.fullscreen_content_controls);
 		final AdSageLayout adSageLayout;
         adSageLayout = new AdSageLayout(this, AbstractMobiSageMediatorAd.yourPublishId, AdSageSize.AdSageSize_Auto);	
         adSageLayout.setAdListener(this);
         linearLayout.addView(adSageLayout);
         
-	} 
+	} */
 	
 }
