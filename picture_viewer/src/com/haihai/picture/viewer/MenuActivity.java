@@ -27,17 +27,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class MenuActivity extends Activity{
-	private  List<Integer> imageIDs ;
-	private List<ChangeablePictureView> pictureViews;
-	 
+	private  List<Integer> imageIDs ;  
 	LinearLayout linearLayout;
-	Map<String, ImageView> menuStuffMap = null;
+	Map<String, Integer> categeryMap = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_layout);
 		LinearLayout linearLayout = new LinearLayout(this);
-		
+	  /*getResources().getIntArray(R.array.category_names);*/
 		initiallize();
 		
 	   

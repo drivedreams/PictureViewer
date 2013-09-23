@@ -8,9 +8,6 @@
 package com.haihai.picture.viewer;
 
 public final class R {
-    public static final class array {
-        public static final int category_names=0x7f060000;
-    }
     public static final class attr {
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -62,16 +59,16 @@ containing a value of this type.
         public static final int splsh=0x7f02000a;
     }
     public static final class id {
-        public static final int categories=0x7f080003;
-        public static final int category_title=0x7f080002;
-        public static final int demo_collection_button=0x7f080006;
-        public static final int demo_external_activity=0x7f080007;
-        public static final int download_pic=0x7f080008;
-        public static final int guidePages=0x7f080004;
-        public static final int open=0x7f080009;
-        public static final int pager=0x7f080000;
-        public static final int pager_title_strip=0x7f080001;
-        public static final int viewGroup=0x7f080005;
+        public static final int categories=0x7f070003;
+        public static final int category_title=0x7f070002;
+        public static final int demo_collection_button=0x7f070006;
+        public static final int demo_external_activity=0x7f070007;
+        public static final int download_pic=0x7f070008;
+        public static final int guidePages=0x7f070004;
+        public static final int open=0x7f070009;
+        public static final int pager=0x7f070000;
+        public static final int pager_title_strip=0x7f070001;
+        public static final int viewGroup=0x7f070005;
     }
     public static final class layout {
         public static final int activity_collection_demo=0x7f030000;
@@ -120,16 +117,16 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int ButtonBar=0x7f070003;
-        public static final int ButtonBarButton=0x7f070004;
-        public static final int FullscreenActionBarStyle=0x7f070006;
-        public static final int FullscreenTheme=0x7f070002;
-        public static final int Transparent=0x7f070005;
+        public static final int AppTheme=0x7f060001;
+        public static final int ButtonBar=0x7f060003;
+        public static final int ButtonBarButton=0x7f060004;
+        public static final int FullscreenActionBarStyle=0x7f060006;
+        public static final int FullscreenTheme=0x7f060002;
+        public static final int Transparent=0x7f060005;
     }
     public static final class styleable {
         /** 

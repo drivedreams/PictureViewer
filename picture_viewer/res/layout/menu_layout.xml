@@ -5,7 +5,6 @@
     android:background="#ff99cc"
     tools:context=".MenuActivity" >
   
-      <ListView > 
-          
+      <ListView >  
       </ListView> 
 </FrameLayout>

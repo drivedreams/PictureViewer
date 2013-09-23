@@ -14,7 +14,7 @@ public class CategoryActivity extends Activity {
 	 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.category_layout); 
-		String category_names[] = this.getResources().getStringArray(R.array.category_names);
-		
+		/*String category_names[] = this.getResources().getStringArray(R.array.category_names);
+		*/
 	}
 }
