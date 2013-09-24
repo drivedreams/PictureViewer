@@ -1,7 +1,11 @@
 package com.haihai.picture.viewer;
  
 
+import java.util.List;
+
 import com.haihai.picture.viewer.advertise.AbstractMobiSageMediatorAd;
+import com.haihai.picture.viewer.database.PictureCategoryDao;
+import com.haihai.picture.viewer.database.PictureCategoryModel;
 import com.haihai.picture.viewer.util.FileDownload;
 import com.haihai.picture.viewer.view.StaticPictureView;
 import com.haihai.picture.viewer.view.WelcomeView;
@@ -27,8 +31,21 @@ public class Welcome   extends AbstractMobiSageMediatorAd{
 		 final ImageView pic = (ImageView)findViewById(R.id.download_pic);
 		  WelcomeView welcomView =new WelcomeView(this); 
 		  this.addContentView(welcomView, pic.getLayoutParams());
-		  
-		/*String picListUrl = "http://hot.baidupcs.com/file/3608ded5e636213b5c5159b13e0b4f9e?xcode=1633cd63bdba8624979b2ba7237f37fb63783c764c03dca5&fid=255009563-250528-1176229348&time=1378306504&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-DEzHA6awRN%2BrvzG2AOaf%2FuBA6mY%3D&to=hb&fm=N,B,U&expires=8h&rt=pr&r=617507837&logid=1731049635&fn=piclist.txt";
+		  PictureCategoryDao pictureCategoryDao = new PictureCategoryDao(this);
+		  for (int i = 0; i < 7; i++) {
+			  PictureCategoryModel pictureCategoryModel = new PictureCategoryModel();
+			  pictureCategoryModel.setName("Sexy"  );
+			  pictureCategoryModel.setUrl("test" );
+			  pictureCategoryDao.insert(pictureCategoryModel);
+		  }
+		  PictureCategoryModel pictureCategoryModel = new PictureCategoryModel();
+		  pictureCategoryModel.setName("Sexy"  );
+		  pictureCategoryModel.setUrl("test" );
+		List<PictureCategoryModel> pictureCategoryModels = pictureCategoryDao.query(pictureCategoryModel);
+		for (PictureCategoryModel pictureCategoryModel2 : pictureCategoryModels) {
+			Log.w("test", "ID: " + pictureCategoryModel2.getId() +" __ Name: "+ pictureCategoryModel2.getName());
+		}
+		  /*String picListUrl = "http://hot.baidupcs.com/file/3608ded5e636213b5c5159b13e0b4f9e?xcode=1633cd63bdba8624979b2ba7237f37fb63783c764c03dca5&fid=255009563-250528-1176229348&time=1378306504&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-DEzHA6awRN%2BrvzG2AOaf%2FuBA6mY%3D&to=hb&fm=N,B,U&expires=8h&rt=pr&r=617507837&logid=1731049635&fn=piclist.txt";
 		final String picURL = "http://www.baidupcs.com/thumbnail/a90305752937c735ddd5e6343a0591de?fid=255009563-250528-3395885180&time=1378303914&rt=pr&sign=FDTAR-DCb740ccc5511e5e8fedcff06b081203-jigIQkYpa%2FUTUSwdj6w7sgi9nnw%3D&expires=8h&size=c850_u580&quality=100";
 		final FileDownload  fileDownload = new FileDownload();
 		String urls = fileDownload.getTxtString(picListUrl) ;

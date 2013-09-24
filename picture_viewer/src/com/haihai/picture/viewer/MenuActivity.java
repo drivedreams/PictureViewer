@@ -22,7 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.Button; 
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -34,7 +34,7 @@ public class MenuActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_layout);
-		LinearLayout linearLayout = new LinearLayout(this);
+		
 	  /*getResources().getIntArray(R.array.category_names);*/
 		initiallize();
 		
@@ -51,7 +51,23 @@ public class MenuActivity extends Activity{
 		*/
 		
 	}
-
+	private void addImages(List<Bitmap> bitmaps){
+		LinearLayout linearLayout = null;
+		for (int i = 0; i < bitmaps.size(); i++) {
+			if(i%2==0){
+			  linearLayout = new LinearLayout(this);
+			  ImageView imageView = new ImageView(this);
+			  imageView.setImageBitmap(bitmaps.get(i));
+			  linearLayout.addView(new ImageView(this));
+			}else{
+				if(linearLayout !=null){
+					ImageView imageView = new ImageView(this);
+					imageView.setImageBitmap(bitmaps.get(i));
+					linearLayout.addView(new ImageView(this));
+				}
+			}
+		}
+	}
 	 private void showImages() {
 		 Bitmap bitmap =  BitmapFactory.decodeResource(getResources(), R.drawable.sexymm04);
 		 ChangeablePictureView changeablePictureView = new ChangeablePictureView(this, bitmap);
