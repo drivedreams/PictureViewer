@@ -27,10 +27,7 @@ public class Welcome   extends AbstractMobiSageMediatorAd{
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.welcom_layout);
-		new StaticPictureView(this);
-		 final ImageView pic = (ImageView)findViewById(R.id.download_pic);
-		  WelcomeView welcomView =new WelcomeView(this); 
-		  this.addContentView(welcomView, pic.getLayoutParams());
+		new StaticPictureView(this);   
 		  PictureCategoryDao pictureCategoryDao = new PictureCategoryDao(this);
 		  for (int i = 0; i < 7; i++) {
 			  PictureCategoryModel pictureCategoryModel = new PictureCategoryModel();
